@@ -1,4 +1,4 @@
-import { Counter } from "@/components/Counter";
+import { Counter } from "@/components/Pages/Counter";
 import React from "react";
 
 export default function page() {
