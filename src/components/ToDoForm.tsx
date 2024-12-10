@@ -24,7 +24,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, updateTodo } from "@/redux/feature/todo/slice";
 import { RootState } from "@/redux/store";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -33,9 +33,7 @@ const formSchema = z.object({
   note: z.string().min(10, {
     message: "Note must be at least 10 characters.",
   }),
-  status: z.enum(["todo", "in-progress", "done"], {
-    message: "Invalid status",
-  }),
+  status: z.enum(["todo", "in-progress", "done"]),
 });
 
 interface ToDoFormProps {

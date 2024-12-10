@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { StoreProvider } from "@/redux/StoreProvider";
+import { NavBar } from "@/components/SideBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,9 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          <div className="flex items-start gap-x-10">
+            <NavBar />
+            {children}
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );

@@ -16,10 +16,12 @@ export function Alert({
   children,
   buttonStyle,
   id,
+  className,
 }: {
   children: React.ReactNode;
   buttonStyle?: string;
   id?: string;
+  className?: string;
 }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -38,7 +40,7 @@ export function Alert({
           {children}
         </div>
       </AlertDialogTrigger>
-      <AlertDialogContent className=" max-w-[400px]">
+      <AlertDialogContent className={`max-w-[400px] ${className}`}>
         <AlertDialogHeader>
           <AlertDialogTitle></AlertDialogTitle>
           <ToDoForm id={id} closeDialog={closeDialog} />

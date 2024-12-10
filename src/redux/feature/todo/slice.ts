@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface Todo {
+export interface Todo {
   id?: string;
   title: string;
   status: "todo" | "in-progress" | "done";
@@ -42,9 +42,12 @@ export const todoSlice = createSlice({
       update!.status = action.payload.status;
       update!.note = action.payload.note;
     },
+    deleteTodo: (state, action: PayloadAction<string>) => {
+      state.items = state.items.filter((todo) => todo.id !== action.payload);
+    },
   },
 });
 
-export const { addTodo, updateTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, deleteTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
