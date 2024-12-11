@@ -22,7 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, updateTodo } from "@/redux/feature/todo/slice";
+import { addTodo, Todo, updateTodo } from "@/redux/feature/todo/slice";
 import { RootState } from "@/redux/store";
 import { v4 as uuidv4 } from "uuid";
 
@@ -44,7 +44,7 @@ interface ToDoFormProps {
 export function ToDoForm({ closeDialog, id }: ToDoFormProps) {
   const todos = useSelector((state: RootState) => state.todos.items);
   const selectTodo = todos.find(
-    (todo) => todo.id !== undefined && todo.id === id
+    (todo: Todo) => todo.id !== undefined && todo.id === id
   );
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

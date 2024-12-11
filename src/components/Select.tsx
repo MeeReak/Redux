@@ -4,13 +4,24 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
+  // SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useSearchParams } from "next/navigation";
 
-export function SelectDemo() {
-  const handleValueChange = (value: string) => {};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function SelectDemo({ router }: { router: any }) {
+  const searchParam = useSearchParams();
+
+  const handleValueChange = (value: string) => {
+    const currentSearch = searchParam.get("search");
+    if (currentSearch) {
+      router.push(`?search=${currentSearch}&status=${value}`);
+    } else {
+      router.push(`?status=${value}`);
+    }
+  };
 
   return (
     <Select onValueChange={handleValueChange}>
@@ -19,7 +30,8 @@ export function SelectDemo() {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Status</SelectLabel>
+          {/* <SelectLabel>Status</SelectLabel> */}
+          <SelectItem value="all">All</SelectItem>
           <SelectItem value="todo">To Do</SelectItem>
           <SelectItem value="in-progress">In Process</SelectItem>
           <SelectItem value="done">Done</SelectItem>
