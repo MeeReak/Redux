@@ -15,7 +15,11 @@ export const NavBar = () => {
         <Input
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             const currentStatus = searchParams.get("status");
-            router.push(`?search=${e.target.value}&status=${currentStatus}`);
+            if (currentStatus) {
+              router.push(`?search=${e.target.value}&status=${currentStatus}`);
+            } else {
+              router.push(`?search=${e.target.value}`);
+            }
           }}
           className=" w-fit bg-white"
         />

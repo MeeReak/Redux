@@ -38,3 +38,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+birth-certificate.json
+married-certificate.json
+national-id.json

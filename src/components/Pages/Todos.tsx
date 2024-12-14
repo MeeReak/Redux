@@ -33,8 +33,11 @@ const TodoItem = React.memo(({ todo }: TodoItemProps) => {
   }, [dispatch, todo.id]);
 
   return (
-    <div className="bg-white rounded-lg cursor-pointer shadow-md p-6 w-[280px] hover:transform hover:translate-y-[-5px] hover:shadow-lg transition-transform duration-300 ease-in-out flex justify-between">
-      <Alert className="" id={todo.id}>
+    <div
+      id={`${todo.id}`}
+      className="bg-white rounded-lg cursor-pointer shadow-md p-6 w-[280px] hover:transform hover:translate-y-[-5px] hover:shadow-lg transition-transform duration-300 ease-in-out flex justify-between"
+    >
+      <Alert id={todo.id}>
         <div className="flex flex-col justify-between h-full">
           <div>
             <h2 className="text-2xl font-semibold mb-3 text-gray-800">
