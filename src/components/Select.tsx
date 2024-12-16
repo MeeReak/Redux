@@ -11,7 +11,7 @@ import {
 import { useSearchParams } from "next/navigation";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function SelectDemo({ router }: { router: any }) {
+export function SelectDemo({ router }: { router?: any }) {
   const searchParam = useSearchParams();
 
   const handleValueChange = (value: string) => {
